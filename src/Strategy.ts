@@ -1,7 +1,6 @@
-import { inherits } from 'util'
 import OAuth2Strategy from 'passport-oauth2'
-
-import { StrategyOptions, Profile } from './types/models'
+import { inherits } from 'util'
+import { AuthorizationOptions, Profile, StrategyOptions } from './types/models'
 
 const DEFAULT_CLIENT_SECRET = 'kakao'
 const OAUTH_HOST = 'https://kauth.kakao.com'
@@ -57,7 +56,7 @@ inherits(Strategy, OAuth2Strategy)
  */
 Strategy.prototype.userProfile = function (
   accessToken: string,
-  done: (error: Error, profile?: Profile) => void
+  done: (error: Error | null, profile?: Profile) => void
 ) {
   this._oauth2.get(
     this._userProfileURL,
@@ -83,11 +82,27 @@ Strategy.prototype.userProfile = function (
           _json: json,
         }
         return done(null, profile)
-      } catch (e) {
+      } catch (e: any) {
         return done(e)
       }
     }
   )
+}
+
+Strategy.prototype.authorizationParams = function (
+  options: AuthorizationOptions
+) {
+  const params: any = {}
+  if (options.client_id) params.client_id = options.client_id
+  if (options.redirect_uri) params.redirect_uri = options.redirect_uri
+  if (options.response_type) params.response_type = options.response_type
+  if (options.scope) params.scope = options.scope
+  if (options.prompt) params.prompt = options.prompt
+  if (options.login_hint) params.login_hint = options.login_hint
+  if (options.service_terms) params.service_terms = options.service_terms
+  if (options.state) params.state = options.state
+  if (options.nonce) params.nonce = options.nonce
+  return params
 }
 
 export default Strategy

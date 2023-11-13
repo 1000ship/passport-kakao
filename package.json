@@ -1,6 +1,6 @@
 {
   "name": "passport-kakao",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "kakao oauth2 login module",
   "main": "./dist/passport-kakao",
   "keywords": [
@@ -11,34 +11,35 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/rotoshine/passport-kakao.git"
+    "url": "git://github.com/1000ship/passport-kakao.git"
   },
-  "author": "rotoshine@gmail.com",
+  "author": "dev.1000ship@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "passport-oauth2": "^1.6.1"
+    "passport-oauth2": "^1.7.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.3",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.7.11",
-    "@types/passport-oauth2": "^1.4.11",
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "mocha": "^6.2.1",
-    "prettier": "^2.0.5",
-    "rimraf": "^3.0.2",
-    "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
+    "@types/chai": "^4.3.10",
+    "@types/mocha": "^10.0.4",
+    "@types/node": "^20.9.0",
+    "@types/passport-oauth2": "^1.4.15",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "chai": "^4.3.10",
+    "eslint": "^8.53.0",
+    "mocha": "^10.2.0",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.6.3"
+    "typescript": "^5.2.2"
   },
   "scripts": {
     "test": "mocha -r node_modules/ts-node/register ./tests/**/*.spec.ts",
     "clean": "rimraf dist/*",
-    "build": "npm run clean && npx tsc",
+    "build": "yarn clean && yarn tsc",
     "lint": "eslint -c .eslintrc.js src/**/*.ts",
     "format": "prettier --write \"src/*.{ts,tsx,json,md}\""
   }

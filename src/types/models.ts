@@ -9,6 +9,19 @@ export interface StrategyOptions {
   userAgent?: string
 }
 
+// https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#kakaologin
+export type AuthorizationOptions = {
+  client_id?: string
+  redirect_uri?: string
+  response_type?: string
+  scope?: string
+  prompt?: string
+  login_hint?: string
+  service_terms?: string
+  state?: string
+  nonce?: string
+}
+
 export interface Profile {
   provider: 'kakao'
   id?: string | number
