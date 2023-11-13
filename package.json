@@ -1,7 +1,7 @@
 {
-  "name": "passport-kakao",
-  "version": "2.1.0",
-  "description": "kakao oauth2 login module",
+  "name": "@1000ship/passport-kakao",
+  "version": "1.0.0",
+  "description": "kakao oauth2 login module - Modified by 1000ship",
   "main": "./dist/passport-kakao",
   "keywords": [
     "passport",
